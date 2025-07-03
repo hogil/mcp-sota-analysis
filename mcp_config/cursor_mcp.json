@@ -1,0 +1,108 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@latest",
+        "C:/Users/hgchoi",
+        "D:/project"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory@latest"
+      ]
+    },
+    "arxiv": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-arxiv@latest"
+      ]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch@latest"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github@latest"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE"
+      }
+    },
+    "huggingface": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@shreyaskarnik/huggingface-mcp-server"
+      ],
+      "env": {
+        "HUGGINGFACE_API_KEY": "YOUR_HF_TOKEN_HERE"
+      }
+    },
+    "exa-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-exa@latest"
+      ],
+      "env": {
+        "EXA_API_KEY": "YOUR_EXA_TOKEN_HERE"
+      }
+    },
+    "mem0": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-mem0@latest"
+      ],
+      "env": {
+        "MEM0_API_KEY": "YOUR_MEM0_TOKEN_HERE"
+      }
+    },
+    "semantic-scholar": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-semantic-scholar@latest"
+      ]
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer@latest"
+      ]
+    },
+    "paperswithcode": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@hbg/mcp-paperswithcode"
+      ]
+    },
+    "paper-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@openags/paper-search-mcp"
+      ]
+    }
+  }
+}
