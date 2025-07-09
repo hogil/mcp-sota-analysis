@@ -20,6 +20,107 @@ MCP는 '모델 컨텍스트 프로토콜(Model Context Protocol)'의 약자입�
 
 쉽게 말해, AI가 사람처럼 컴퓨터를 사용하여 정보를 찾고, 분석하고, 결과를 만들어내는 능동적인 '에이전트'가 되도록 돕는 규약입니다.
 
+### 🔧 **MCP 설정 및 연결 방법**
+
+#### **1. Claude Desktop에서 MCP 설정**
+Claude Desktop 앱을 사용하는 경우:
+
+1. **설정 파일 위치**: `%APPDATA%\Claude\claude_desktop_config.json` (Windows)
+2. **기본 설정 예시**:
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "/path/to/allowed/files"]
+    },
+    "web-search": {
+      "command": "npx", 
+      "args": ["@modelcontextprotocol/server-web-search"]
+    },
+    "youtube": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-youtube"]
+    }
+  }
+}
+```
+
+#### **2. Cursor에서 MCP 설정**
+Cursor 에디터를 사용하는 경우:
+
+1. **설정 파일 위치**: 프로젝트 루트의 `mcp_config/cursor_mcp.json`
+2. **설정 예시**:
+```json
+{
+  "servers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "D:\\project"]
+    },
+    "web-search": {
+      "command": "npx", 
+      "args": ["@modelcontextprotocol/server-web-search"]
+    }
+  }
+}
+```
+
+#### **3. 주요 MCP 서버 설치**
+```bash
+# 파일 시스템 접근
+npm install -g @modelcontextprotocol/server-filesystem
+
+# 웹 검색 기능
+npm install -g @modelcontextprotocol/server-web-search
+
+# 유튜브 데이터 접근
+npm install -g @modelcontextprotocol/server-youtube
+```
+
+### 🎯 **MCP를 사용하는 이유**
+
+#### **기존 AI의 한계**
+- ❌ **정적 지식**: 훈련 데이터 시점까지의 정보만 알고 있음
+- ❌ **실시간 정보 부족**: 최신 논문, 뉴스, 트렌드를 모름
+- ❌ **도구 사용 불가**: 파일 읽기/쓰기, 코드 실행, 웹 검색 등 불가능
+- ❌ **단발성 응답**: 지속적인 작업 관리나 업데이트 불가능
+
+#### **MCP 활용 시 가능한 것들**
+- ✅ **실시간 정보 수집**: 최신 논문, 뉴스, 기술 동향 실시간 검색
+- ✅ **파일 시스템 조작**: 코드 작성, 문서 생성, 프로젝트 관리
+- ✅ **지속적인 업데이트**: Git 커밋, 자동 문서화, 버전 관리
+- ✅ **복합 작업 수행**: 데이터 수집 → 분석 → 문서화 → 배포까지 자동화
+- ✅ **다양한 도구 연동**: API 호출, 데이터베이스 접근, 클라우드 서비스 연결
+
+### 💡 **이 프로젝트에서의 MCP 활용 사례**
+
+#### **실제 수행된 작업들**
+1. **📚 논문 검색 및 분석**
+   - `web_search` 도구로 ArXiv에서 최신 SOTA 논문 검색
+   - 각 논문의 핵심 내용, 성능 지표, 방법론 자동 추출
+
+2. **📝 문서 생성 및 편집**
+   - `filesystem` 도구로 README.md 파일 읽기/쓰기
+   - 분석 결과를 구조화된 마크다운 문서로 자동 변환
+
+3. **🔄 버전 관리**
+   - `terminal` 도구로 Git 명령어 실행
+   - 변경사항 자동 커밋 및 GitHub 푸시
+
+4. **📊 비교 분석표 생성**
+   - 수집된 데이터를 바탕으로 모델 성능 비교표 자동 생성
+   - 각 모델의 특징과 적용 분야 매핑
+
+#### **전통적인 방법 vs MCP 활용**
+| 구분 | 전통적인 방법 | MCP 활용 |
+|------|---------------|----------|
+| 정보 수집 | 수동으로 논문 검색 및 읽기 | 자동 논문 검색 및 핵심 내용 추출 |
+| 문서 작성 | 수동으로 내용 정리 및 작성 | 분석 결과 자동 문서화 |
+| 업데이트 | 새로운 정보 발견 시 수동 수정 | 실시간 최신 정보 반영 |
+| 버전 관리 | 수동 Git 명령어 실행 | 자동 커밋 및 푸시 |
+| 소요 시간 | 수 시간 ~ 수 일 | 수 분 ~ 수십 분 |
+
 ### 🤔 **이 프로젝트에서 MCP는 어떻게 사용되었나요?**
 이 프로젝트의 `README.md`는 **사람이 직접 작성한 것이 아니라, MCP를 기반으로 동작하는 AI 에이전트가 생성하고 업데이트**한 결과물입니다.
 
